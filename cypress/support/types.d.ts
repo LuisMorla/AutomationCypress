@@ -8,6 +8,9 @@ export declare global {
         openLogin(): Chainable<JQuery<HTMLElement>>
         contactFormMenu(): Chainable<JQuery<HTMLElement>>
         alertMessage(): Chainable<JQuery<HTMLElement>>
+        homePage(): Chainable<JQuery<HTMLElement>>
+        aboutUS(): Chaineble<JQuery<HTMLElement>>
+        login(username:string, password:string): Chainable<JQuery<HTMLElement>>
       }
     }
   }
