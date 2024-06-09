@@ -27,7 +27,7 @@ export const dashboardCommands = Cypress.Commands.addAll({
   login: (username: string, password: string) => {
     dashboard.menuPageBtn().eq(4).click();
     dashboard.username().type(username);
-    cy.wait(1000);
+    cy.wait(2000);
     dashboard.password().type(password);
     dashboard.loginButton().click();
     dashboard
@@ -35,4 +35,21 @@ export const dashboardCommands = Cypress.Commands.addAll({
       .eq(6)
       .should('contain.text', 'Welcome ' + username);
   },
+
+  signUp: (username: string, password: string) => {
+    dashboard.signUpNav().click();
+    dashboard.usernameSignUp().type(username);
+    cy.wait(2000);
+    dashboard.passwordSignUp().type(password);
+    dashboard.signUp().click();
+    cy.on('window:alert', (alertText) => {
+      if(expect(alertText).contains('This user already exist.')){
+        cy.log(`El usuario ${username} ya existe, intentando con el siguiente usuario.`);
+        return true;
+      }else{
+        expect(alertText).contains('Sign up successful.');
+        return true;
+      }
+    });
+  }
 });

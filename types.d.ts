@@ -71,6 +71,7 @@ export declare global {
       addToCart(item: ITEMS): Chainable<JQuery<HTMLElement>>;
       deleteFromCart(child: number): Chainable<JQuery<HTMLElement>>;
       placeOrder(order: PLACE_ORDER): Chainable<JQuery<HTMLElement>>;
+      signUp(username: string, password: string): Chainable<JQuery<HTMLElement>>;
     }
   }
 }
