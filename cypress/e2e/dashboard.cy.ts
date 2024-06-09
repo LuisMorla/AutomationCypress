@@ -1,6 +1,6 @@
 describe("Dashboard Menu", () => {
   beforeEach(() => {
-    cy.openLogin()
+    cy.startApp()
   })
 
     it('Contact menu Button', ()=>{
