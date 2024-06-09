@@ -21,23 +21,45 @@ export declare global {
   export type FEATURES_ELEMENTS_KEYS<K extends FEATURES_ELEMENTS> = NestedKeys<
     FEATURES[K]
   >;
+    
+  export type ITEMS = KeyOf<Pick<FEATURES['HOME'], 'ITEM_1' | 'ITEM_2' | 'ITEM_3'>>
 
-  export interface Contact {
-    email: string;
+  export type PLACE_ORDER = {
     name: string;
-    message: string;
+    country: string;
+    city: string;
+    creditCard: string;
+    month: string;
+    year: string;
   }
-
   namespace Cypress {
     interface Chainable {
       startApp: (path?: string) => Chainable<JQuery<HTMLElement>>;
+      /**
+       * Get the element by feature and element, the feature must be a key of FEATURES and the element must be a key of the feature
+       * to configure the features go to cypress.env.json
+       * @param feature
+       * @param element
+       * @returns
+       * @example
+       * cy.getByFeature('HOME', 'ITEMS')
+       * cy.getByFeature('HOME', 'NAVIGATE')
+       * cy.getByFeature('HOME', 'NEXT_ITEMS')
+       * 
+       */
       getByFeature: <K extends FEATURES_ELEMENTS>(
         feature: K,
         element: FEATURES_ELEMENTS_KEYS<K>
       ) => Chainable<JQuery<HTMLElement>>;
-      contactForm: (contact: Contact) => CHainable<JQuery<HTMLElement>>;
+      /**
+       * This function will execute a list of functions in a chain and wait for a specific time to make most of the process more stable and natural
+       * @fires YOU MUST BE CAREFUL WITH THE WAIT TIME, IF YOU PUT A BIGGER TIME THAN THE PROCESS NEEDS, THE TEST WILL BE SLOWER AND REMOVE THE MOST  FUNCTION YOU HAVE THE MOST TIME YOU WILL WAIT
+       * @param process 
+       * @param wait 
+       * @returns 
+       */
       awaitableCluster: (
-        process: Array<() => Chainable<JQuery<HTMLElement>>>,
+        process: Array<() => Chainable<any>>,
         wait: number
       ) => Chainable<JQuery<HTMLElement>>;
       openLogin(): Chainable<JQuery<HTMLElement>>;
@@ -46,6 +68,9 @@ export declare global {
       homePage(): Chainable<JQuery<HTMLElement>>;
       aboutUS(): Chainable<JQuery<HTMLElement>>;
       login(username: string, password: string): Chainable<JQuery<HTMLElement>>;
+      addToCart(item: ITEMS): Chainable<JQuery<HTMLElement>>;
+      deleteFromCart(child: number): Chainable<JQuery<HTMLElement>>;
+      placeOrder(order: PLACE_ORDER): Chainable<JQuery<HTMLElement>>;
     }
   }
 }
