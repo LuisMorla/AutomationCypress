@@ -1,4 +1,4 @@
-class Dashboard {
+export class Dashboard {
     Elements = {
         formContactEmail: () => cy.get('#recipient-email'),
         formContactName: () => cy.get('#recipient-name'),
@@ -49,5 +49,3 @@ class Dashboard {
     }
 
 }
-
-export default Dashboard; 

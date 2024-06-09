@@ -3,9 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "type": "commonjs",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "cy:open": "cypress open",
     "cy:run": "cypress run"
   },
@@ -13,8 +12,11 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "cypress": "^13.8.1",
-    "typescript": "^5.4.5",
-    "@types/bun": "latest"
+    "cypress": "^13.11.0",
+    "cypress-vite": "^1.5.0",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "@types/node": "^20.14.2"
   }
 }
