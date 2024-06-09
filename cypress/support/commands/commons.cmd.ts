@@ -6,7 +6,7 @@ export const commonsCommands = Cypress.Commands.addAll({
     element: K
   ) => cy.get(Cypress.env('FEATURES')[feature][element]),
   awaitableCluster: (
-    process: Array<() => Cypress.Chainer<JQuery<HTMLElement>>>,
+    process: Array<() => Cypress.Chainer<JQuery<any>>>,
     wait: number
   ) => {
     let chain = cy.wrap(null);
