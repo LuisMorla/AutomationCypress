@@ -1,5 +1,5 @@
 describe('template spec', () => {
-  it('passes', () => {
-    cy.startApp()
-  })
-})
+  it('Should add to cart', () => {
+    cy.startApp();
+  });
+});
