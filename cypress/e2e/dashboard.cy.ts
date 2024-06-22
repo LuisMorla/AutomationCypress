@@ -3,6 +3,10 @@ describe("Dashboard Menu", () => {
     cy.startApp()
   })
 
+  afterEach(() => {
+    cy.screenshot()
+  })
+
     it('Contact menu Button', ()=>{
       cy.contactFormMenu()
       cy.alertMessage()

@@ -36,7 +36,7 @@ export const dashboardCommands = Cypress.Commands.addAll({
       .should('contain.text', 'Welcome ' + username);
   },
 
-  signUp: (username: string, password: string) => {
+  signUp: (username: string, password: string) => { 
     dashboard.signUpNav().click();
     dashboard.usernameSignUp().type(username);
     cy.wait(2000);
