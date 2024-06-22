@@ -6,9 +6,9 @@ pipeline{
         choice(name: 'browser', choices: ['chrome', 'edge'], description: 'Browser to run tests')
     }
 
-    options{
-        ansiColor('authorizationMatrix')
-    }
+    // options{
+    //     ansiColor('authorizationMatrix')
+    // }
 
     stages{
         stage('Build'){
