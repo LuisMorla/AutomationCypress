@@ -28,7 +28,6 @@ pipeline{
         stage('Run tests'){
             steps{
                 withEnv(['FORCE_COLOR=0']) {
-                    def browser = params.browser.toLowerCase()
                     bat "npx cypress run --spec '${params.spec}' --browser '${browser}'"
                 }
             }
