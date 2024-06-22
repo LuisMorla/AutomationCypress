@@ -3,13 +3,13 @@ pipeline{
 
     parameters{
         string(name: 'SPEC', defaultValue: 'cypress/e2e/**/**', description: 'Cypress spec file to run')
-        choice(name: 'BROWSER', choices: ['chrome', 'edge'], description: 'Browser to run tests')
+        choice(name: 'BROWSER', choices: ['electron', 'edge'], description: 'Browser to run tests')
     }
 
-    options {
-        ansiColor('xterm')
-    }
-    
+    // options {
+    //     ansiColor('xterm')
+    // }
+
     stages{
         stage('Build'){
             steps{
