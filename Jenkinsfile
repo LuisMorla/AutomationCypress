@@ -7,7 +7,7 @@ pipeline{
     }
 
     options{
-        ansiColor('xterm')
+        ansiColor('authorizationMatrix')
     }
 
     stages{
