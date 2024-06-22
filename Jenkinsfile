@@ -6,10 +6,10 @@ pipeline{
         choice(name: 'BROWSER', choices: ['chrome', 'edge'], description: 'Browser to run tests')
     }
 
-    // options{
-    //     ansiColor('authorizationMatrix')
-    // }
-
+    options {
+        ansiColor('xterm')
+    }
+    
     stages{
         stage('Build'){
             steps{
@@ -27,8 +27,8 @@ pipeline{
 
         stage('Run tests'){
             steps{
-                withEnv(['FORCE_COLOR=0']) {
-                    bat "npx cypress run --spec '${params.spec}' --browser '${browser}'"
+                script{
+                    bat "npx cypress run --spec ${SPEC} --browser ${BROWSER}"
                 }
             }
         }
