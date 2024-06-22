@@ -20,7 +20,7 @@ pipeline{
         stage('Install dependencies'){
             steps{
                 script{
-                    bat 'bun install'
+                    bat 'npm install'
                 }
             }
         }
@@ -28,7 +28,7 @@ pipeline{
         stage('Run tests'){
             steps{
                 script{
-                    bat "bun cy:run --spec '${params.spec}' --browser '${params.browser}'"
+                    bat "npm cy:run --spec '${params.spec}' --browser '${params.browser}'"
                 }
             }
         }
