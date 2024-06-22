@@ -40,9 +40,9 @@ pipeline{
         }
     }
 
-    post{
-        always{
-            publishHTML(target: [allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: 'cypress/reports', reportFiles: 'index.html', reportName: 'Cypress Test Report', reportTitles: ''])
-        }
-    }
+    // post{
+    //     always{
+    //         publishHTML(target: [allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: 'cypress/reports', reportFiles: 'index.html', reportName: 'Cypress Test Report', reportTitles: ''])
+    //     }
+    // }
 }
